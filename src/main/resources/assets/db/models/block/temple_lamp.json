@@ -1,0 +1,7 @@
+{
+  "parent": "block/cube_column",
+  "textures": {
+    "end": "db:blocks/temple_lamp_top",
+    "side": "db:blocks/temple_lamp"
+  }
+}

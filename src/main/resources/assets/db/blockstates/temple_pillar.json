@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "axis=y":  { "model": "db:temple_pillar" },
+    "axis=z":   { "model": "db:temple_pillar", "x": 90 },
+    "axis=x":   { "model": "db:temple_pillar", "x": 90, "y": 90 },
+    "axis=none": { "model": "db:temple_block" }
+  }
+}

@@ -1,0 +1,264 @@
+{
+  "entity.boss.idle1": {
+    "category": "entity",
+    "subtitle": "entity.boss.idle1",
+    "sounds": [
+      {
+        "name": "db:entity/boss/idle1",
+        "stream": true
+      },
+      {
+        "name": "db:entity/boss/idle2",
+        "stream": true
+      },
+      {
+        "name": "db:entity/boss/idle3",
+        "stream" : true
+      }
+    ]
+  },
+  "entity.boss.hurt1": {
+    "category": "entity",
+    "subtitle": "entity.boss.hurt1",
+    "sounds": [
+      {
+        "name": "db:entity/boss/hurt1",
+        "stream": true
+      },
+      {
+        "name": "db:entity/boss/hurt2",
+        "stream": true
+      }
+    ]
+  },
+  "entity.boss.idle2": {
+    "category": "entity",
+    "subtitle": "entity.boss.idle2",
+    "sounds": [
+      {
+        "name": "db:entity/boss/idle2",
+        "stream": true
+      }
+    ]
+  },
+  "entity.boss.idle3": {
+    "category": "entity",
+    "subtitle": "entity.boss.idle3",
+    "sounds": [
+      {
+        "name": "db:entity/boss/idle3",
+        "stream": true
+      }
+    ]
+  },
+  "entity.boss.hurt2": {
+    "category": "entity",
+    "subtitle": "entity.boss.hurt2",
+    "sounds": [
+      {
+        "name": "db:entity/boss/hurt2",
+        "stream": true
+      }
+    ]
+  },
+  "entity.boss.death": {
+    "category": "entity",
+    "subtitle": "entity.boss.death",
+    "sounds": [
+      {
+        "name": "db:entity/boss/death",
+        "stream": true
+      }
+    ]
+  },
+  "entity.boss.strike": {
+    "category": "entity",
+    "subtitle": "entity.boss.strike",
+    "sounds": [
+      {
+        "name": "db:entity/boss/strike",
+        "stream": true
+      }
+    ]
+  },
+  "entity.boss.bell": {
+    "category": "entity",
+    "subtitle": "entity.boss.bell",
+    "sounds": [
+      {
+        "name": "db:entity/boss/bell",
+        "stream": true
+      }
+    ]
+  },
+  "entity.boss.spike_ring": {
+    "category": "entity",
+    "subtitle": "entity.boss.spike_ring",
+    "sounds": [
+      {
+        "name": "db:entity/boss/spike_ring",
+        "stream": true
+      }
+    ]
+  },
+  "entity.boss.spike_line": {
+    "category": "entity",
+    "subtitle": "entity.boss.spike_line",
+    "sounds": [
+      {
+        "name": "db:entity/boss/spike_line",
+        "stream": true
+      }
+    ]
+  },
+  "entity.boss.orb": {
+    "category": "entity",
+    "subtitle": "entity.boss.orb",
+    "sounds": [
+      {
+        "name": "db:entity/boss/orb",
+        "stream": true
+      }
+    ]
+  },
+  "entity.boss.thrall": {
+    "category": "entity",
+    "subtitle": "entity.boss.thrall",
+    "sounds": [
+      {
+        "name": "db:entity/boss/thrall",
+        "stream": true
+      }
+    ]
+  },
+  "entity.object.spike": {
+    "category": "entity",
+    "subtitle": "entity.object.spike",
+    "sounds": [
+      {
+        "name": "db:entity/object/spike",
+        "stream": true
+      }
+    ]
+  },
+  "entity.thrall.idle1": {
+    "category": "entity",
+    "subtitle": "entity.thrall.idle1",
+    "sounds": [
+      {
+        "name": "db:entity/thrall/idle1",
+        "stream": true
+      },
+      {
+        "name": "db:entity/thrall/idle2",
+        "stream": true
+      },
+      {
+        "name": "db:entity/thrall/idle3",
+        "stream" : true
+      }
+    ]
+  },
+  "entity.thrall.hurt1": {
+    "category": "entity",
+    "subtitle": "entity.thrall.hurt1",
+    "sounds": [
+      {
+        "name": "db:entity/thrall/hurt1",
+        "stream": true
+      },
+      {
+        "name": "db:entity/thrall/hurt2",
+        "stream": true
+      }
+    ]
+  },
+  "entity.thrall.attack": {
+    "category": "entity",
+    "subtitle": "entity.thrall.attack",
+    "sounds": [
+      {
+        "name": "db:entity/thrall/attack",
+        "stream": true
+      }
+    ]
+  },
+  "entity.thrall.death": {
+    "category": "entity",
+    "subtitle": "entity.thrall.death",
+    "sounds": [
+      {
+        "name": "db:entity/thrall/death",
+        "stream": true
+      }
+    ]
+  },
+  "entity.claw.catch": {
+    "category": "entity",
+    "subtitle": "entity.claw.catch",
+    "sounds": [
+      {
+        "name": "db:entity/claw/catch",
+        "stream": true
+      }
+    ]
+  },
+  "entity.claw.pull1": {
+    "category": "entity",
+    "subtitle": "entity.claw.pull1",
+    "sounds": [
+      {
+        "name": "db:entity/claw/pull1",
+        "stream": true
+      },
+      {
+        "name": "db:entity/claw/pull2",
+        "stream": true
+      },
+      {
+        "name": "db:entity/claw/pull3",
+        "stream" : true
+      }
+    ]
+  },
+  "entity.object.staffwater": {
+    "category": "entity",
+    "subtitle": "entity.object.staffwater",
+    "sounds": [
+      {
+        "name": "db:entity/object/staffwater",
+        "stream": true
+      }
+    ]
+  },
+  "entity.object.staffland": {
+    "category": "entity",
+    "subtitle": "entity.object.staffland",
+    "sounds": [
+      {
+        "name": "db:entity/object/staffland",
+        "stream": true
+      }
+    ]
+  },
+  "entity.boss.scream": {
+    "category": "entity",
+    "subtitle": "entity.boss.scream",
+    "sounds": [
+      {
+        "name": "db:entity/boss/scream",
+        "stream": true
+      }
+    ]
+  },
+  "ambience.temple.noise": {
+    "category": "ambience",
+    "subtitle": "ambience.temple.noise",
+    "sounds": [
+      {
+        "name": "db:ambience/temple/noise",
+        "stream": true
+      }
+    ]
+  }
+}

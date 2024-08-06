@@ -1,0 +1,6 @@
+{
+  "variants":
+  {
+    "variant=default": { "model": "db:temple_cobble_slab_double" }
+  }
+}

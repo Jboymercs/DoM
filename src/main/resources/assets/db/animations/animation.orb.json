@@ -1,0 +1,271 @@
+{
+	"format_version": "1.8.0",
+	"animations": {
+		"idle": {
+			"loop": true,
+			"animation_length": 2,
+			"bones": {
+				"Orb": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"2.0": {
+							"vector": [360, -360, 0],
+							"easing": "linear"
+						}
+					}
+				},
+				"Layer_1": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"2.0": {
+							"vector": [-360, 0, 360],
+							"easing": "linear"
+						}
+					}
+				},
+				"Layer_2": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"2.0": {
+							"vector": [360, 360, 0],
+							"easing": "linear"
+						}
+					}
+				},
+				"Trail_1": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"2.0": {
+							"vector": [0, 0, -1080]
+						}
+					}
+				},
+				"Trail_Holder_1": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"2.0": {
+							"vector": [360, 0, 0]
+						}
+					}
+				},
+				"Trail_Holder_3": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"2.0": {
+							"vector": [0, 0, 360]
+						}
+					}
+				},
+				"Trail_3": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"2.0": {
+							"vector": [0, 0, -1080]
+						}
+					}
+				},
+				"Trail_Holder_2": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"2.0": {
+							"vector": [0, 0, 360]
+						}
+					}
+				},
+				"Trail_2": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"2.0": {
+							"vector": [0, 0, -1440]
+						}
+					}
+				},
+				"Scale": {
+					"scale": {
+						"vector": [1.5, 1.5, 1.5]
+					}
+				}
+			}
+		},
+		"spawn": {
+			"animation_length": 2,
+			"bones": {
+				"Orb": {
+					"rotation": {
+						"0.0": {
+							"vector": [-360, 360, 0],
+							"easing": "linear"
+						},
+						"2.0": {
+							"vector": [0, 0, 0]
+						}
+					},
+					"scale": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"0.5": {
+							"vector": [1, 1, 1],
+							"easing": "easeInBounce",
+							"easingArgs": [0.1]
+						}
+					}
+				},
+				"Layer_1": {
+					"rotation": {
+						"0.0": {
+							"vector": [360, 0, -360],
+							"easing": "linear"
+						},
+						"2.0": {
+							"vector": [0, 0, 0]
+						}
+					},
+					"scale": {
+						"0.75": {
+							"vector": [0, 0, 0]
+						},
+						"2.0": {
+							"vector": [1, 1, 1],
+							"easing": "easeOutBack"
+						}
+					}
+				},
+				"Layer_2": {
+					"rotation": {
+						"0.0": {
+							"vector": [-360, -360, 0],
+							"easing": "linear"
+						},
+						"2.0": {
+							"vector": [0, 0, 0]
+						}
+					},
+					"scale": {
+						"0.5": {
+							"vector": [0, 0, 0]
+						},
+						"2.0": {
+							"vector": [1, 1, 1],
+							"easing": "easeOutBack"
+						}
+					}
+				},
+				"Trail_1": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, 1080]
+						},
+						"2.0": {
+							"vector": [0, 0, 0]
+						}
+					},
+					"scale": {
+						"0.5": {
+							"vector": [0, 0, 0]
+						},
+						"2.0": {
+							"vector": [1, 1, 1],
+							"easing": "easeInElastic",
+							"easingArgs": [2]
+						}
+					}
+				},
+				"Trail_Holder_1": {
+					"rotation": {
+						"0.0": {
+							"vector": [-360, 0, 0]
+						},
+						"2.0": {
+							"vector": [0, 0, 0]
+						}
+					}
+				},
+				"Trail_Holder_3": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, -360]
+						},
+						"2.0": {
+							"vector": [0, 0, 0]
+						}
+					}
+				},
+				"Trail_3": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, 1080]
+						},
+						"2.0": {
+							"vector": [0, 0, 0]
+						}
+					},
+					"scale": {
+						"0.0": {
+							"vector": [0, 0, 0]
+						},
+						"2.0": {
+							"vector": [1, 1, 1],
+							"easing": "easeInElastic",
+							"easingArgs": [1.2]
+						}
+					}
+				},
+				"Trail_Holder_2": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, -360]
+						},
+						"2.0": {
+							"vector": [0, 0, 0]
+						}
+					}
+				},
+				"Trail_2": {
+					"rotation": {
+						"0.0": {
+							"vector": [0, 0, 1440]
+						},
+						"2.0": {
+							"vector": [0, 0, 0]
+						}
+					},
+					"scale": {
+						"0.2083": {
+							"vector": [0, 0, 0]
+						},
+						"2.0": {
+							"vector": [1, 1, 1],
+							"easing": "easeInElastic",
+							"easingArgs": [2]
+						}
+					}
+				},
+				"Scale": {
+					"scale": {
+						"vector": [1.5, 1.5, 1.5]
+					}
+				}
+			}
+		}
+	},
+	"geckolib_format_version": 2
+}

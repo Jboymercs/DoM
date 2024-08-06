@@ -1,0 +1,9 @@
+{
+  "parent": "block/half_slab",
+  "textures":
+  {
+    "bottom": "db:blocks/temple_brick",
+    "top": "db:blocks/temple_brick",
+    "side": "db:blocks/temple_brick"
+  }
+}

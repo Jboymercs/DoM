@@ -1,0 +1,16 @@
+[
+{
+  "modid": "db",
+  "name": "Depths of Madness",
+  "description": "Holds even the darkest and deepest secrets in the ocean.",
+  "version": "${0.1}",
+  "mcversion": "${1.12.2}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["UnseenDontRun"],
+  "credits": "UnOriginal, FakeDrayn",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": ["Geckolib 3.1"]
+}
+]

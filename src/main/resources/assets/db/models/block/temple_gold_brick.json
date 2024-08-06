@@ -1,0 +1,6 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "db:blocks/temple_gold_brick"
+  }
+}
