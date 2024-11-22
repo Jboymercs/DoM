@@ -10,6 +10,7 @@ import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.EntityAIHurtByTarget;
 import net.minecraft.entity.ai.EntityAINearestAttackableTarget;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
@@ -25,9 +26,9 @@ public class EntityAbstractClaw extends EntityModBase implements IEntityMultiPar
     private final MultiPartEntityPart model = new MultiPartEntityPart(this, "model", 0f, 0f);
     private final MultiPartEntityPart bottom = new MultiPartEntityPart(this, "base", 0.6f, 0.6f);
 
-    private static final DataParameter<Boolean> ATTACK_MODE = EntityDataManager.createKey(EntityModBase.class, DataSerializers.BOOLEAN);
-    private static final DataParameter<Boolean> EAT_MODE = EntityDataManager.createKey(EntityModBase.class, DataSerializers.BOOLEAN);
-    protected static final DataParameter<Float> LOOK = EntityDataManager.createKey(EntityModBase.class, DataSerializers.FLOAT);
+    private static final DataParameter<Boolean> ATTACK_MODE = EntityDataManager.createKey(EntityAbstractClaw.class, DataSerializers.BOOLEAN);
+    private static final DataParameter<Boolean> EAT_MODE = EntityDataManager.createKey(EntityAbstractClaw.class, DataSerializers.BOOLEAN);
+    protected static final DataParameter<Float> LOOK = EntityDataManager.createKey(EntityAbstractClaw.class, DataSerializers.FLOAT);
 
     public void setAttackMode(boolean value) {this.dataManager.set(ATTACK_MODE, Boolean.valueOf(value));}
     public boolean isAttackMode() {return this.dataManager.get(ATTACK_MODE);}
@@ -47,6 +48,22 @@ public class EntityAbstractClaw extends EntityModBase implements IEntityMultiPar
         this.dataManager.register(EAT_MODE, Boolean.valueOf(false));
         super.entityInit();
 
+    }
+
+    @Override
+    public void writeEntityToNBT(NBTTagCompound nbt) {
+        super.writeEntityToNBT(nbt);
+        nbt.setBoolean("Attack", this.isAttackMode());
+        nbt.setBoolean("Eat_Mode", this.isEatMode());
+        nbt.setFloat("Look", this.getPitch());
+    }
+
+    @Override
+    public void readEntityFromNBT(NBTTagCompound nbt) {
+        super.readEntityFromNBT(nbt);
+        this.setAttackMode(nbt.getBoolean("Attack"));
+        this.setEatMode(nbt.getBoolean("Eat_Mode"));
+        this.dataManager.set(LOOK, nbt.getFloat("Look"));
     }
 
     @Override

@@ -12,6 +12,7 @@ import net.minecraft.entity.MoverType;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.*;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
@@ -48,10 +49,10 @@ public class EntityThrall extends EntityModBase implements IAnimatable, IAttack 
     private final String ANIM_SWING_ATTACK = "attack";
     private final String ANIM_SUMMON = "summon";
     private final String ANIM_PRAYING = "pray";
-    private static final DataParameter<Boolean> FIGHT_MODE = EntityDataManager.createKey(EntityModBase.class, DataSerializers.BOOLEAN);
-    private static final DataParameter<Boolean> HAS_GROUND = EntityDataManager.createKey(EntityModBase.class, DataSerializers.BOOLEAN);
-    private static final DataParameter<Boolean> SUMMON = EntityDataManager.createKey(EntityModBase.class, DataSerializers.BOOLEAN);
-    private static final DataParameter<Boolean> PRAYING = EntityDataManager.createKey(EntityModBase.class, DataSerializers.BOOLEAN);
+    private static final DataParameter<Boolean> FIGHT_MODE = EntityDataManager.createKey(EntityThrall.class, DataSerializers.BOOLEAN);
+    private static final DataParameter<Boolean> HAS_GROUND = EntityDataManager.createKey(EntityThrall.class, DataSerializers.BOOLEAN);
+    private static final DataParameter<Boolean> SUMMON = EntityDataManager.createKey(EntityThrall.class, DataSerializers.BOOLEAN);
+    private static final DataParameter<Boolean> PRAYING = EntityDataManager.createKey(EntityThrall.class, DataSerializers.BOOLEAN);
     public void setFightMode(boolean value) {this.dataManager.set(FIGHT_MODE, Boolean.valueOf(value));}
     public boolean isFightMode() {return this.dataManager.get(FIGHT_MODE);}
     public void setHasGround(boolean value) {this.dataManager.set(HAS_GROUND, Boolean.valueOf(value));}
@@ -157,6 +158,26 @@ public class EntityThrall extends EntityModBase implements IAnimatable, IAttack 
         this.dataManager.register(SUMMON, Boolean.valueOf(false));
         this.dataManager.register(PRAYING, Boolean.valueOf(false));
         super.entityInit();
+    }
+
+    @Override
+    public void writeEntityToNBT(NBTTagCompound nbt) {
+        super.writeEntityToNBT(nbt);
+        nbt.setBoolean("Fight_Mode", this.isFightMode());
+        nbt.setBoolean("Has_Ground", this.isOnGround());
+        nbt.setBoolean("Summon", this.isSummon());
+        nbt.setBoolean("Praying", this.isPraying());
+    }
+
+
+    @Override
+    public void readEntityFromNBT(NBTTagCompound nbt) {
+        this.setFightMode(nbt.getBoolean("Fight_Mode"));
+        this.setHasGround(nbt.getBoolean("Has_Ground"));
+        this.setSummon(nbt.getBoolean("Summon"));
+        this.setPraying(nbt.getBoolean("Praying"));
+        super.readEntityFromNBT(nbt);
+
     }
 
     @Override

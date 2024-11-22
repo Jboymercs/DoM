@@ -9,6 +9,7 @@ import net.minecraft.entity.MultiPartEntityPart;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.*;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
@@ -28,22 +29,22 @@ public abstract class EntityAbstractHierophant extends EntityModBase implements 
     private final MultiPartEntityPart headFront = new MultiPartEntityPart(this, "head", 1f, 1f);
     private final MultiPartEntityPart tailOne = new MultiPartEntityPart(this, "tail_one", 1f, 0.8f);
     private final MultiPartEntityPart tailTwo = new MultiPartEntityPart(this, "tail_two", 1f, 0.8f);
-    private static final DataParameter<Boolean> FIGHT_MODE = EntityDataManager.createKey(EntityModBase.class, DataSerializers.BOOLEAN);
-    private static final DataParameter<Boolean> SHADOW_CAST = EntityDataManager.createKey(EntityModBase.class, DataSerializers.BOOLEAN);
-    private static final DataParameter<Boolean> MELEE_STRIKE = EntityDataManager.createKey(EntityModBase.class, DataSerializers.BOOLEAN);
-    private static final DataParameter<Boolean> FULL_BODY_USAGE = EntityDataManager.createKey(EntityModBase.class, DataSerializers.BOOLEAN);
+    private static final DataParameter<Boolean> FIGHT_MODE = EntityDataManager.createKey(EntityAbstractHierophant.class, DataSerializers.BOOLEAN);
+    private static final DataParameter<Boolean> SHADOW_CAST = EntityDataManager.createKey(EntityAbstractHierophant.class, DataSerializers.BOOLEAN);
+    private static final DataParameter<Boolean> MELEE_STRIKE = EntityDataManager.createKey(EntityAbstractHierophant.class, DataSerializers.BOOLEAN);
+    private static final DataParameter<Boolean> FULL_BODY_USAGE = EntityDataManager.createKey(EntityAbstractHierophant.class, DataSerializers.BOOLEAN);
 
-    private static final DataParameter<Boolean> BELL_RING = EntityDataManager.createKey(EntityModBase.class, DataSerializers.BOOLEAN);
+    private static final DataParameter<Boolean> BELL_RING = EntityDataManager.createKey(EntityAbstractHierophant.class, DataSerializers.BOOLEAN);
 
-    private static final DataParameter<Boolean> SUMMON_ORB = EntityDataManager.createKey(EntityModBase.class, DataSerializers.BOOLEAN);
+    private static final DataParameter<Boolean> SUMMON_ORB = EntityDataManager.createKey(EntityAbstractHierophant.class, DataSerializers.BOOLEAN);
 
-    private static final DataParameter<Boolean> SUMMON_THRALL = EntityDataManager.createKey(EntityModBase.class, DataSerializers.BOOLEAN);
+    private static final DataParameter<Boolean> SUMMON_THRALL = EntityDataManager.createKey(EntityAbstractHierophant.class, DataSerializers.BOOLEAN);
 
-    private static final DataParameter<Boolean> SUMMON_JAIL_CELL = EntityDataManager.createKey(EntityModBase.class, DataSerializers.BOOLEAN);
-    private static final DataParameter<Boolean> SPIKES_AOE = EntityDataManager.createKey(EntityModBase.class, DataSerializers.BOOLEAN);
-    private static final DataParameter<Boolean> SPIKE_LINE = EntityDataManager.createKey(EntityModBase.class, DataSerializers.BOOLEAN);
-    private static final DataParameter<Boolean> DEATH = EntityDataManager.createKey(EntityModBase.class, DataSerializers.BOOLEAN);
-    protected static final DataParameter<Float> LOOK = EntityDataManager.createKey(EntityModBase.class, DataSerializers.FLOAT);
+    private static final DataParameter<Boolean> SUMMON_JAIL_CELL = EntityDataManager.createKey(EntityAbstractHierophant.class, DataSerializers.BOOLEAN);
+    private static final DataParameter<Boolean> SPIKES_AOE = EntityDataManager.createKey(EntityAbstractHierophant.class, DataSerializers.BOOLEAN);
+    private static final DataParameter<Boolean> SPIKE_LINE = EntityDataManager.createKey(EntityAbstractHierophant.class, DataSerializers.BOOLEAN);
+    private static final DataParameter<Boolean> DEATH = EntityDataManager.createKey(EntityAbstractHierophant.class, DataSerializers.BOOLEAN);
+    protected static final DataParameter<Float> LOOK = EntityDataManager.createKey(EntityAbstractHierophant.class, DataSerializers.FLOAT);
 
     public void setFightMode(boolean value) {this.dataManager.set(FIGHT_MODE, Boolean.valueOf(value));}
     public boolean isFightMode() {return this.dataManager.get(FIGHT_MODE);}
@@ -161,6 +162,40 @@ public abstract class EntityAbstractHierophant extends EntityModBase implements 
             this.hitboxParts[l].prevPosY = avec3d[l].y;
             this.hitboxParts[l].prevPosZ = avec3d[l].z;
         }
+    }
+
+    @Override
+    public void writeEntityToNBT(NBTTagCompound nbt) {
+        super.writeEntityToNBT(nbt);
+        nbt.setBoolean("Fight_Mode", this.isFightMode());
+        nbt.setBoolean("Shadow", this.isShadowCasting());
+        nbt.setBoolean("Melee", this.isMeleeStrike());
+        nbt.setBoolean("Full_Body_Usage", this.isFullBodyUsage());
+        nbt.setBoolean("Bell_Ring", this.isBellRinge());
+        nbt.setBoolean("Summon_Thrall", this.isSummonThrall());
+        nbt.setBoolean("Summon_Orb", this.isSummonOrd());
+        nbt.setBoolean("Summon_Jail", this.isSummonJailCell());
+        nbt.setBoolean("Spikes_Aoe", this.isSpikesAOE());
+        nbt.setBoolean("Spike_Line", this.isSpikeLIne());
+        nbt.setBoolean("Death", this.isDeath());
+        nbt.setFloat("Look", this.getPitch());
+    }
+
+    @Override
+    public void readEntityFromNBT(NBTTagCompound nbt) {
+        super.readEntityFromNBT(nbt);
+        this.setFightMode(nbt.getBoolean("Fight_Mode"));
+        this.setShadowCast(nbt.getBoolean("Shadow"));
+        this.setMeleeStrike(nbt.getBoolean("Melee"));
+        this.setFullBodyUsage(nbt.getBoolean("Full_Body_Usage"));
+        this.setBellRing(nbt.getBoolean("Bell_Ring"));
+        this.setSummonThrall(nbt.getBoolean("Summon_Thrall"));
+        this.setSummonOrb(nbt.getBoolean("Summon_Orb"));
+        this.setSummonJailCell(nbt.getBoolean("Summon_Jail"));
+        this.setSpikesAoe(nbt.getBoolean("Spikes_Aoe"));
+        this.setSpikeLine(nbt.getBoolean("Spike_Line"));
+        this.setDeath(nbt.getBoolean("Death"));
+        this.dataManager.set(LOOK, nbt.getFloat("Look"));
     }
 
     @Override
