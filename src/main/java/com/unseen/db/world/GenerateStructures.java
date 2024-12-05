@@ -1,7 +1,11 @@
 package com.unseen.db.world;
 
+import com.google.common.collect.Lists;
 import com.unseen.db.config.ModConfig;
+import com.unseen.db.config.WorldConfig;
+import com.unseen.db.util.logger.DoMLogger;
 import com.unseen.db.world.oceanTemple.WorldGenOceanTemple;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.Rotation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -14,9 +18,12 @@ import net.minecraftforge.fml.common.IWorldGenerator;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Random;
 
 public class GenerateStructures implements IWorldGenerator {
+
+    private static List<Biome> spawnBiomes;
 
     //Imported from End Expansion: The Lamented Islands
     @Override
@@ -24,39 +31,16 @@ public class GenerateStructures implements IWorldGenerator {
         int x = chunkX * 16;
         int z = chunkZ * 16;
         BlockPos pos = world.getHeight(new BlockPos(x, 0, z));
-        Biome biome = world.getBiomeForCoordsBody(pos);
-        if(world.provider.getDimension() == 0) {
-         //Make this biome specific, reference Deep Below for Biome Specific structure spawning
-            if(BiomeDictionary.hasType(biome, BiomeDictionary.Type.OCEAN) && ModConfig.temple_enabled_disabled) {
-                if (canStructureSpawn(chunkX, chunkZ, world, ModConfig.temple_structure_spawnrate)) {
+        if(isAllowedDimensionTooSpawnIn(world.provider.getDimension()) && WorldConfig.temple_enabled_disabled) {
 
-                    new WorldGenOceanTemple().generateStructure(world, new BlockPos(x, 25, z), Rotation.NONE);
+            if(world.getBiomeForCoordsBody(pos) == getSpawnBiomes().iterator().next()) {
+                if (canStructureSpawn(chunkX, chunkZ, world, WorldConfig.temple_structure_spawnrate)) {
+
+                    new WorldGenOceanTemple().generateStructure(world, new BlockPos(x, WorldConfig.temple_spawn_height, z), Rotation.NONE);
                     //Generate Structure
                 }
             }
         }
-    }
-
-    private boolean generateBiomeSpecificStructure(WorldGenStructure generator, World world, Random rand, int x, int z, Class<?>... classes) {
-        ArrayList<Class<?>> classesList = new ArrayList<Class<?>>(Arrays.asList(classes));
-
-        x += 8;
-        z += 8;
-        int y = generator.getYGenHeight(world, x, z);
-        BlockPos pos = new BlockPos(x, y, z);
-
-        Class<?> biome = world.provider.getBiomeForCoords(pos).getClass();
-
-        if (y > -1 && (world.getWorldType() != WorldType.FLAT || world.provider.getDimension() != 0)) {
-            if (classesList.contains(biome)) {
-                if (rand.nextFloat() > generator.getAttempts()) {
-                    generator.generate(world, rand, pos);
-                    return true;
-
-                }
-            }
-        }
-        return false;
     }
 
     public static boolean canStructureSpawn(int chunkX, int chunkZ, World world, int frequency){
@@ -87,4 +71,30 @@ public class GenerateStructures implements IWorldGenerator {
 
         return i == k && j == l;
     }
+
+    public static boolean isAllowedDimensionTooSpawnIn(int dimensionIn) {
+        for(int i : WorldConfig.list_of_dimensions) {
+            if(i == dimensionIn)
+                return true;
+        }
+
+        return false;
+    }
+
+    public static List<Biome> getSpawnBiomes() {
+        if (spawnBiomes == null) {
+            spawnBiomes = Lists.newArrayList();
+            for (String str : WorldConfig.biome_allowed) {
+                try {
+                    Biome biome = Biome.REGISTRY.getObject(new ResourceLocation(str));
+                    if (biome != null) spawnBiomes.add(biome);
+                    else DoMLogger.logError("Biome " + str + " is not registered", new NullPointerException());
+                } catch (Exception e) {
+                    DoMLogger.logError(str + " is not a valid registry name", e);
+                }
+            }
+        }
+        return spawnBiomes;
+    }
+
 }

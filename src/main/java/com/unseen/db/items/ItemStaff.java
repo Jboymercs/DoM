@@ -1,6 +1,8 @@
 package com.unseen.db.items;
 
 import com.unseen.db.Main;
+import com.unseen.db.config.ModConfig;
+import com.unseen.db.config.WorldConfig;
 import com.unseen.db.entity.ProjectileActionOrb;
 import com.unseen.db.init.ModSoundHandler;
 import com.unseen.db.util.IHasModel;
@@ -35,7 +37,7 @@ public class ItemStaff extends ItemBase implements IAnimatable, IHasModel {
         super(name, tab);
         this.setCreativeTab(CreativeTabs.COMBAT);
         this.setMaxStackSize(1);
-        this.setMaxDamage(100);
+        this.setMaxDamage(ModConfig.staff_durability);
         this.info_loc = info_loc;
     }
 
@@ -48,7 +50,7 @@ public class ItemStaff extends ItemBase implements IAnimatable, IHasModel {
     public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer player, EnumHand hand)
     {
         ItemStack stack = player.getHeldItem(hand);
-        int cooldown = 100;
+        int cooldown = ModConfig.staff_cooldown * 20;
         if(!worldIn.isRemote && !player.getCooldownTracker().hasCooldown(this)) {
             AnimationController<?> controller = GeckoLibUtil.getControllerForStack(this.factory, stack, controllerName);
             Vec3d playerLookVec = player.getLookVec();

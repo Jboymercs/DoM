@@ -1,5 +1,6 @@
 package com.unseen.db.entity;
 
+import com.unseen.db.config.MobConfig;
 import com.unseen.db.config.ModConfig;
 import com.unseen.db.util.IPitch;
 import com.unseen.db.util.ModUtils;
@@ -76,12 +77,12 @@ public class EntityAbstractClaw extends EntityModBase implements IEntityMultiPar
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(ModConfig.claw_health);
+        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(MobConfig.claw_health);
         this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(8D);
         this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0);
         this.getEntityAttribute(SharedMonsterAttributes.KNOCKBACK_RESISTANCE).setBaseValue(1.0D);
         this.getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(10.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(ModConfig.claw_attack_damage);
+        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(MobConfig.claw_attack_damage);
     }
 
     @Override

@@ -1,5 +1,6 @@
 package com.unseen.db.entity;
 
+import com.unseen.db.config.MobConfig;
 import com.unseen.db.config.ModConfig;
 import com.unseen.db.util.ModColors;
 import com.unseen.db.util.ModUtils;
@@ -53,7 +54,7 @@ public class EntityBlindnessAura extends EntityModBase implements IAnimatable {
             if(!targets.isEmpty()) {
                 for(EntityLivingBase entityLivingBase : targets) {
                     if(!this.world.isRemote) {
-                        entityLivingBase.addPotionEffect(new PotionEffect(MobEffects.BLINDNESS, ModConfig.aura_blindness_timer * 20, 2));
+                        entityLivingBase.addPotionEffect(new PotionEffect(MobEffects.BLINDNESS, MobConfig.aura_blindness_timer * 20, 2));
                         entityLivingBase.addPotionEffect(new PotionEffect(MobEffects.NIGHT_VISION, 300, 1));
                     }
                 }

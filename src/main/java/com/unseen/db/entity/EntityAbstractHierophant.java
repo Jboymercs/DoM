@@ -1,5 +1,6 @@
 package com.unseen.db.entity;
 
+import com.unseen.db.config.MobConfig;
 import com.unseen.db.config.ModConfig;
 import com.unseen.db.util.IPitch;
 import com.unseen.db.util.ModUtils;
@@ -75,8 +76,8 @@ public abstract class EntityAbstractHierophant extends EntityModBase implements 
         this.setSize(2f, 3.5f);
         this.isImmuneToExplosions();
         this.isImmuneToFire = true;
-        if(ModConfig.scaled_attack_factor_enable_disable) {
-            this.healthScaledAttackFactor = ModConfig.hierophant_scaled_factor;
+        if(MobConfig.scaled_attack_factor_enable_disable) {
+            this.healthScaledAttackFactor = MobConfig.hierophant_scaled_factor;
         }
     }
 
@@ -131,13 +132,13 @@ public abstract class EntityAbstractHierophant extends EntityModBase implements 
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(ModConfig.hierophant_health);
+        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(MobConfig.hierophant_health);
         this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(40D);
         this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.43590D);
         this.getEntityAttribute(SharedMonsterAttributes.KNOCKBACK_RESISTANCE).setBaseValue(1.0D);
         this.getEntityAttribute(SharedMonsterAttributes.ARMOR_TOUGHNESS).setBaseValue(2.0D);
         this.getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(18.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(ModConfig.hierophant_attack_damage);
+        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(MobConfig.hierophant_attack_damage);
     }
 
     @Override

@@ -1,5 +1,6 @@
 package com.unseen.db.entity;
 
+import com.unseen.db.config.MobConfig;
 import com.unseen.db.config.ModConfig;
 import com.unseen.db.entity.ai.EntityAiTimedAttack;
 import com.unseen.db.init.ModSoundHandler;
@@ -294,12 +295,12 @@ public class EntityThrall extends EntityModBase implements IAnimatable, IAttack 
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(ModConfig.thrall_health);
+        this.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).setBaseValue(MobConfig.thrall_health);
         this.getEntityAttribute(SharedMonsterAttributes.FOLLOW_RANGE).setBaseValue(16D);
         this.getEntityAttribute(SharedMonsterAttributes.MOVEMENT_SPEED).setBaseValue(0.43590D);
         this.getEntityAttribute(SharedMonsterAttributes.KNOCKBACK_RESISTANCE).setBaseValue(0.5D);
         this.getEntityAttribute(SharedMonsterAttributes.ARMOR).setBaseValue(8.0D);
-        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(ModConfig.thrall_attack_damage);
+        this.getEntityAttribute(SharedMonsterAttributes.ATTACK_DAMAGE).setBaseValue(MobConfig.thrall_attack_damage);
     }
 
     public void travel(float strafe, float vertical, float forward) {

@@ -1,5 +1,6 @@
 package com.unseen.db.entity;
 
+import com.unseen.db.config.MobConfig;
 import com.unseen.db.config.ModConfig;
 import com.unseen.db.util.ModDamageSource;
 import com.unseen.db.util.ModUtils;
@@ -54,7 +55,7 @@ public class EntityHieroSpike extends EntityModBase implements IAnimatable {
                 for (EntityLivingBase entityLivingBase : targets) {
                     Vec3d damageDealtPos = entityLivingBase.getPositionVector();
                     DamageSource builder = ModDamageSource.builder().type(ModDamageSource.MOB).directEntity(this).build();
-                    float damage = ModConfig.spike_attack_damage;
+                    float damage = MobConfig.spike_attack_damage;
                     ModUtils.handleAreaImpact(1.0f, (e)-> damage, this, damageDealtPos, builder, 0.5f, 0, false);
                 }
             }

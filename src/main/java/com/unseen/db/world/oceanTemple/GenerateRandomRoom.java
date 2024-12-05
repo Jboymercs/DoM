@@ -1,6 +1,7 @@
 package com.unseen.db.world.oceanTemple;
 
 import com.unseen.db.config.ModConfig;
+import com.unseen.db.config.WorldConfig;
 import com.unseen.db.util.ModRandom;
 import com.unseen.db.util.ModUtils;
 import com.unseen.db.world.WorldGenStructure;
@@ -37,7 +38,7 @@ public class GenerateRandomRoom extends WorldGenStructure {
     //A Random configuration that will base if a creature will spawn with the given tag upon spawning the structure
     public boolean generateMobSpawn() {
         int randomNumberGenerator = ModRandom.range(0, 10);
-        if (randomNumberGenerator >= ModConfig.mob_spawn_chance) {
+        if (randomNumberGenerator >= WorldConfig.mob_spawn_chance) {
             return false;
         }
         return true;
@@ -45,7 +46,7 @@ public class GenerateRandomRoom extends WorldGenStructure {
 
     public boolean generateChestSpawn() {
         int randomNumberChestGenerator = ModRandom.range(0, 5);
-        if(randomNumberChestGenerator >= ModConfig.chest_spawn_chance) {
+        if(randomNumberChestGenerator >= WorldConfig.chest_spawn_chance) {
             return false;
         }
         return true;

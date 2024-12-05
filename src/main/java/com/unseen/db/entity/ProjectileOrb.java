@@ -1,5 +1,6 @@
 package com.unseen.db.entity;
 
+import com.unseen.db.config.MobConfig;
 import com.unseen.db.config.ModConfig;
 import com.unseen.db.init.ModItems;
 import com.unseen.db.util.ModColors;
@@ -31,7 +32,7 @@ public class ProjectileOrb extends Projectile{
     public void setSummonOrb(boolean value) {this.dataManager.set(SUMMON, Boolean.valueOf(value));}
     public ProjectileOrb(World worldIn, EntityLivingBase throwerIn, float damage, ItemStack stack) {
         //Configuration Options
-        super(worldIn, throwerIn, (float) (ModConfig.hierophant_attack_damage * ModConfig.projectile_modifier));
+        super(worldIn, throwerIn, (float) (MobConfig.hierophant_attack_damage * MobConfig.projectile_modifier));
         this.setNoGravity(true);
 
     }

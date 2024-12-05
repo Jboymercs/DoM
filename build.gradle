@@ -96,7 +96,7 @@ jar {
                 "Specification-Vendor": "unseendontrun",
                 "Specification-Version": "1", // We are version 1 of ourselves
                 "Implementation-Title": project.name,
-                "Implementation-Version": "0.0.1",
+                "Implementation-Version": "0.0.2",
                 "Implementation-Vendor" :"unseendontrun",
                 "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
         ])

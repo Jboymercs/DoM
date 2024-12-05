@@ -4,6 +4,7 @@ import com.unseen.db.init.ModEntities;
 import com.unseen.db.init.ModSoundHandler;
 import com.unseen.db.proxy.CommonProxy;
 import com.unseen.db.util.Reference;
+import com.unseen.db.util.logger.DoMLogger;
 import com.unseen.db.world.GenerateStructures;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
@@ -40,6 +41,9 @@ public class Main
 
     private static Logger logger;
 
+    public Main() {
+        DoMLogger.clearLog();
+    }
 
     @EventHandler
     public void preInit(FMLPreInitializationEvent event)

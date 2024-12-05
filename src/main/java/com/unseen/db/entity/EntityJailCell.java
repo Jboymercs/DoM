@@ -1,5 +1,6 @@
 package com.unseen.db.entity;
 
+import com.unseen.db.config.MobConfig;
 import com.unseen.db.config.ModConfig;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.network.datasync.DataParameter;
@@ -54,7 +55,7 @@ public class EntityJailCell extends EntityModBase implements IAnimatable {
             addEvent(()-> this.setStartMode(false), 20);
         }
 
-        if(ticksExisted > 1 && ticksExisted < (ModConfig.jail_cell_timer * 20)) {
+        if(ticksExisted > 1 && ticksExisted < (MobConfig.jail_cell_timer * 20)) {
             List<EntityLivingBase> targets = this.world.getEntitiesWithinAABB(EntityLivingBase.class, this.getEntityBoundingBox(), e -> !e.getIsInvulnerable() && (!(e instanceof EntityClaw || e instanceof EntityHeirophant || e instanceof EntityJailCell || e instanceof EntityThrall)));
             if(!targets.isEmpty()) {
                 for (EntityLivingBase entitiesWithin : targets) {
@@ -62,7 +63,7 @@ public class EntityJailCell extends EntityModBase implements IAnimatable {
                 }
             }
         }
-        if(ticksExisted == (ModConfig.jail_cell_timer * 20)) {
+        if(ticksExisted == (MobConfig.jail_cell_timer * 20)) {
             this.setEndMode(true);
             addEvent(()-> {
                 this.setDead();

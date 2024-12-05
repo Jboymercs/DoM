@@ -1,5 +1,6 @@
 package com.unseen.db.entity;
 
+import com.unseen.db.config.MobConfig;
 import com.unseen.db.config.ModConfig;
 import com.unseen.db.entity.action.*;
 import com.unseen.db.entity.ai.EntityAiTimedAttack;
@@ -56,6 +57,7 @@ public class EntityHeirophant extends EntityAbstractHierophant implements IAnima
 
     public EntityHeirophant(World worldIn) {
         super(worldIn);
+        this.iAmBossMob = true;
     }
 
     public boolean currentlyDoingNonLOSAttack;
@@ -270,7 +272,7 @@ public class EntityHeirophant extends EntityAbstractHierophant implements IAnima
 
             prevAttack.accept(target);
         }
-        return ModConfig.hierophant_base_attack_speed - (totalAmount * 10);
+        return MobConfig.hierophant_base_attack_speed - (totalAmount * 10);
     }
 
     private final Consumer<EntityLivingBase> meleeAttack = (target) -> {
@@ -319,7 +321,7 @@ public class EntityHeirophant extends EntityAbstractHierophant implements IAnima
         }, 52);
     };
 
-    Supplier<Projectile> projectileSupplierOrb = () -> new ProjectileOrb(world, this,(float) (ModConfig.hierophant_attack_damage * ModConfig.projectile_modifier), null);
+    Supplier<Projectile> projectileSupplierOrb = () -> new ProjectileOrb(world, this,(float) (MobConfig.hierophant_attack_damage * MobConfig.projectile_modifier), null);
     private final Consumer<EntityLivingBase> summonOrbsProjectile = (target) -> {
         this.setFightMode(true);
         this.setSummonOrb(true);
@@ -398,7 +400,7 @@ public class EntityHeirophant extends EntityAbstractHierophant implements IAnima
     @Override
     public void initEntityAI() {
         super.initEntityAI();
-        this.tasks.addTask(4, new EntityAiTimedAttack<>(this, 1.0, ModConfig.hierophant_base_attack_speed - (totalAmount * 10), 16F, 0.1f));
+        this.tasks.addTask(4, new EntityAiTimedAttack<>(this, 1.0, MobConfig.hierophant_base_attack_speed - (totalAmount * 10), 16F, 0.1f));
     }
 
     @Override
